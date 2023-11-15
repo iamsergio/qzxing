@@ -34,9 +34,7 @@ if(QZXING_USE_QML)
     add_definitions(-DQZXING_QML)
 endif(QZXING_USE_QML)
 
-if(QZXING_USE_ENCODER)
-    add_definitions(-DENABLE_ENCODER_GENERIC -DENABLE_ENCODER_QR_CODE)
-endif(QZXING_USE_ENCODER)
+add_definitions(-DENABLE_ENCODER_GENERIC -DENABLE_ENCODER_QR_CODE)
 
 add_library(qzxing SHARED "" ${SOURCES})
 
@@ -74,9 +72,8 @@ if(QZXING_USE_QML)
     target_compile_definitions(qzxing PUBLIC -DQZXING_QML)
 endif(QZXING_USE_QML)
 
-if(QZXING_USE_ENCODER)
-    target_compile_definitions(qzxing PUBLIC -DENABLE_ENCODER_GENERIC -DENABLE_ENCODER_QR_CODE)
-endif(QZXING_USE_ENCODER)
+
+target_compile_definitions(qzxing PUBLIC -DENABLE_ENCODER_GENERIC -DENABLE_ENCODER_QR_CODE)
 
 if(QZXING_USE_DECODER_QR_CODE)
     target_compile_definitions(qzxing PRIVATE -DENABLE_DECODER_QR_CODE)
