@@ -19,7 +19,7 @@ CONFIG +=   qt warn_on
 DEFINES += QZXING_LIBRARY \
         ZXING_ICONV_CONST \
         DISABLE_LIBRARY_FEATURES
-		 
+
 INCLUDEPATH  += $$PWD \
                 $$PWD/zxing
 
@@ -409,13 +409,6 @@ qzxing_multimedia {
     DEFINES += QZXING_MULTIMEDIA
 	PRL_EXPORT_DEFINES += QZXING_MULTIMEDIA
 
-   lessThan(QT_VERSION, 6.2) {
-        HEADERS += \
-            $$PWD/QZXingFilter.h
-
-        SOURCES += \
-          $$PWD/QZXingFilter.cpp
-  }
   greaterThan(QT_VERSION, 6.1) {
     QT += concurrent
     HEADERS += \

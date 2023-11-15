@@ -25,7 +25,6 @@ set(SOURCES
     )
 
 
-# LIST(APPEND SOURCES QZXingFilter.cpp QZXingFilter.h)
 add_definitions(-DQZXING_MULTIMEDIA)
 
 SET(QZXING_USE_QML ON)
