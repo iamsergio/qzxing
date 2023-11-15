@@ -24,14 +24,11 @@ set(SOURCES
     QZXing_global.h
     )
 
-if(QZXING_MULTIMEDIA)
 
-    LIST(APPEND SOURCES QZXingFilter.cpp QZXingFilter.h)
-    add_definitions(-DQZXING_MULTIMEDIA)
+# LIST(APPEND SOURCES QZXingFilter.cpp QZXingFilter.h)
+add_definitions(-DQZXING_MULTIMEDIA)
 
-    SET(QZXING_USE_QML ON)
-
-endif(QZXING_MULTIMEDIA)
+SET(QZXING_USE_QML ON)
 
 if(QZXING_USE_QML)
     LIST(APPEND SOURCES QZXingImageProvider.cpp QZXingImageProvider.h)
@@ -67,10 +64,8 @@ add_subdirectory(zxing/zxing)
 
 target_link_libraries(qzxing Qt6::Core Qt6::Gui)
 
-if(QZXING_MULTIMEDIA)
-    target_link_libraries(qzxing Qt6::Multimedia)
-    target_compile_definitions(qzxing PUBLIC -DQZXING_MULTIMEDIA)
-endif(QZXING_MULTIMEDIA)
+target_link_libraries(qzxing Qt6::Multimedia)
+target_compile_definitions(qzxing PUBLIC -DQZXING_MULTIMEDIA)
 
 if(QZXING_USE_QML)
     target_link_libraries(qzxing
